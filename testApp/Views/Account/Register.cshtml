@@ -1,0 +1,31 @@
+﻿@model testApp.ViewModel.UserViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card custom-card">
+        <div class="card-header bg-primary text-white">
+            <h3>Register Form</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserPassword)
+                @Html.PasswordFor(m => m.UserPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserPassword)
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary rounded-0">Register</button>
+                @Html.ActionLink("Login here", "Login")
+            </div>
+
+        </div>
+    </div>
+}  
